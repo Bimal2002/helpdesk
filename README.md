@@ -165,37 +165,7 @@ Request body:
 }
 ```
 
-#### Add Comment to Ticket
-```http
-POST /tickets/:id/comments
-```
-Request body:
-```json
-{
-    "text": "string"
-}
-```
 
-#### Assign Ticket to Agent
-```http
-PUT /tickets/:id/assign
-```
-Request body:
-```json
-{
-    "agentId": "string"
-}
-```
-- Requires admin role
-
-### Users
-
-#### Get All Agents
-```http
-GET /users/agents
-```
-- Returns list of all agents
-- Requires admin role
 
 #### Create User (Admin only)
 ```http
@@ -268,4 +238,54 @@ Request body:
 }
 ```
 
+## User Creation Rules
+
+### Customer Registration
+- Customers can register themselves through the frontend application
+- Registration endpoint: `POST /api/auth/register`
+- Role must be set to "customer"
+
+### Agent and Admin Creation
+- Agents and Admins can ONLY be created through:
+  1. Backend API requests (using Postman or similar tools)
+  2. Direct database operations
+  3. Admin panel (if implemented)
+- Regular registration endpoint will reject requests with agent/admin roles
+- Required permissions:
+  - Agent creation: Admin role required
+  - Admin creation: Super admin or direct database access required
+
+### Example Agent Creation (via Postman)
+```http
+POST /api/users
+Authorization: Bearer <admin_token>
+Content-Type: application/json
+
+{
+    "name": "Agent Name",
+    "email": "agent@gmail.com",
+    "password": "agent123",
+    "role": "agent"
+}
+```
+
+### Example Admin Creation (via Postman)
+```http
+POST /api/users
+Authorization: Bearer <super_admin_token>
+Content-Type: application/json
+
+{
+    "name": "Admin Name",
+    "email": "admin@gmail.com",
+    "password": "admin123",
+    "role": "admin"
+}
+```
+
+### Security Notes
+- Agent and admin accounts should be created with strong passwords
+- Admin accounts should be limited and monitored
+- Regular audits of admin/agent accounts should be performed
+- Password rotation policies should be enforced for admin/agent accounts
 
