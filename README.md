@@ -45,11 +45,25 @@ A MERN stack based Helpdesk application that allows customers to submit support 
 git clone https://github.com/yourusername/helpdesk.git
 cd helpdesk
 
----
-
 ### Install dependencies:
 # Server
 cd server && npm install
 
 # Client
 cd ../client && npm install
+
+
+3. Create a `.env` file in the server directory:
+
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+PORT=5000
+
+4. Start the development servers:
+Start backend server
+cd server
+npm run dev
+
+Start frontend server
+cd client
+npm start
