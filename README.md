@@ -2,8 +2,7 @@
 
 A MERN stack based Helpdesk application that allows customers to submit support tickets and agents to manage them.
 
-![Helpdesk Application](https://via.placeholder.com/800x400?text=Helpdesk+Screenshot) 
-*(Replace with actual screenshot when available)*
+
 
 ## Features ✨
 
@@ -29,26 +28,28 @@ A MERN stack based Helpdesk application that allows customers to submit support 
 | Authentication  | JWT        |
 | UI Components   | Material-UI|
 
+---
 ## Project Structure 📂
-helpdesk/
-├── client/ # React Frontend
-│ ├── public/ # Static assets
-│ └── src/
-│ ├── assets/ # Images, styles
-│ ├── components/ # UI components
-│ ├── contexts/ # Auth context
-│ ├── hooks/ # Custom hooks
-│ ├── pages/ # Route components
-│ ├── services/ # API services
-│ └── utils/ # Helpers
-│
-├── server/ # Express Backend
-│ ├── config/ # DB config
-│ ├── controllers/ # Business logic
-│ ├── middleware/ # Auth middleware
-│ ├── models/ # Mongoose models
-│ ├── routes/ # API routes
-│ └── utils/ # Validators, etc.
-│
-├── .env.example # Environment template
-└── package.json # Root dependencies
+
+
+## Getting Started 🚀
+
+### Prerequisites
+- Node.js v16+
+- MongoDB (local or Atlas)
+- npm v8+
+
+### Installation
+1. Clone repository:
+```bash
+git clone https://github.com/yourusername/helpdesk.git
+cd helpdesk
+
+---
+
+### Install dependencies:
+# Server
+cd server && npm install
+
+# Client
+cd ../client && npm install
